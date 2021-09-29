@@ -1,0 +1,26 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
+}
+#signUp
+{
+    min-height: 100vh;
+    background-color: #343a40;
+
+}
+.form
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+@media (max-width:768px)
+{
+    .lastInput
+    {
+      padding-top: 15px;
+    }
+}
