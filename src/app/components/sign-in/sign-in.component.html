@@ -1,0 +1,34 @@
+<section id="signIn">
+    <div class="container">
+
+        <form [formGroup]="signInForm" (ngSubmit)="inClick(signInForm)">
+
+            <div class="form w-50 m-auto">
+              <div class="row">
+                  <div *ngIf="errors" class="col-md-12 alert alert-danger text-center font-weight-bolder">
+                      <p>{{ errors }}</p>
+                  </div>
+
+                <input [class.is-valid]="signInForm.controls.email.status == 'VALID'" formControlName="email" type="email" placeholder="Enter Email" class="form-control my-3">
+                <div class="emailAlert alert border border-danger w-100" *ngIf="signInForm.controls.email.errors && signInForm.controls.email.touched">
+
+                    <p *ngIf="signInForm.controls.email.errors.required" class="text-white" >Email is Required</p>
+                    <p *ngIf="signInForm.controls.email.errors.email" class="text-white">Email is inValid</p>
+                </div>
+
+                <input [class.is-valid]="signInForm.controls.password.status == 'VALID'" formControlName="password" type="password" placeholder="Enter password" class="form-control my-3">
+                <div class="passwordAlert alert border border-danger w-100" *ngIf="signInForm.controls.password.errors && signInForm.controls.password.touched">
+
+                    <p *ngIf="signInForm.controls.password.errors.required" class="text-white" >password is Required</p>
+                    <p *ngIf="signInForm.controls.password.errors.pattern" class="text-white">password is inValid</p>
+                </div>
+
+                <button [disabled]="signInForm.invalid" class="btn btn-dark w-100">Sign In <i class="fas fa-sign-in-alt"></i></button>
+
+            </div>
+            </div>
+        </form>
+
+
+    </div>
+</section>

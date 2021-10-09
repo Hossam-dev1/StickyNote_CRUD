@@ -1,0 +1,50 @@
+#profile
+{
+    background-color: #333133;
+    min-height: 100vh;
+    height: auto ;
+    overflow: hidden;
+
+}
+
+
+.note
+{
+    height: 220px;
+    width: 220px;
+    background-color: lightseagreen;
+    box-shadow: -5px 5px 24px -9px rgba(0, 0, 0, 1);
+    border-radius: 5%;
+    transition: all 1.5s;
+
+
+}
+#dropdownMenuButton
+{
+    cursor: pointer;
+    opacity:0.5;
+    transition: all 0.8s;
+}
+.note:hover #dropdownMenuButton
+{
+  opacity: 1;
+}
+#addbtn
+{
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+#add:hover #addbtn
+{
+  opacity: 1;
+}
+
+
+.note:hover
+{
+  background-color: cornflowerblue;
+  border-radius: 10%;
+
+}

@@ -1,0 +1,68 @@
+<section id="signUp">
+    <div class="container bg-danger">
+
+
+        <form [formGroup]="signUpForm" (ngSubmit)="upClick(signUpForm)">
+            <div class="form w-50 m-auto">
+
+                <div class="row py-2">
+
+                  <div class="col-md-12">
+                    <div *ngIf="errors" class="alert alert-danger">
+                      <p>{{ errors }}</p>
+                    </div>
+                  </div>
+
+                    <div class="col-md-6 w-100 ">
+                        <input formControlName="first_name" type="text" placeholder="Enter first name" class="form-control">
+                        <div *ngIf="signUpForm.controls.first_name.errors  && signUpForm.controls.first_name.touched" class="alert border border-danger">
+                            <p   *ngIf="signUpForm.controls.first_name.errors.required" class="text-white">firstName is Required</p>
+                            <p   *ngIf="signUpForm.controls.first_name.errors.minlength" class="text-white">firstName min length is 3</p>
+                            <p   *ngIf="signUpForm.controls.first_name.errors.maxlength" class="text-white">firstName max length is 8</p>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 w-100 lastInput">
+                        <input formControlName="last_name" type="text" placeholder="Enter last name" class="form-control ">
+                        <div *ngIf="signUpForm.controls.last_name.errors  && signUpForm.controls.last_name.touched"  class="alert border border-danger">
+                        <p   *ngIf="signUpForm.controls.last_name.errors.required" class="text-white ">lastName is Required</p>
+                        <p   *ngIf="signUpForm.controls.last_name.errors.minlength" class="text-white">lastName min length is 3</p>
+                        <p   *ngIf="signUpForm.controls.last_name.errors.maxlength" class="text-white">lastName max length is 8</p>
+
+                    </div>
+                    </div>
+
+                </div>
+
+                <input formControlName="email" type="email" placeholder="Enter Email" class="form-control my-3">
+                <div class="emailAlert alert border border-danger" *ngIf="signUpForm.controls.email.errors && signUpForm.controls.email.touched">
+
+                    <p *ngIf="signUpForm.controls.email.errors.required" class="text-white" >Email is Required</p>
+                    <p *ngIf="signUpForm.controls.email.errors.email" class="text-white">Email is inValid</p>
+                </div>
+
+                <input formControlName="age" type="number" placeholder="Enter age" class="form-control">
+                <div *ngIf="signUpForm.controls.age.errors  && signUpForm.controls.age.touched" class="alert border border-danger">
+                    <p   *ngIf="signUpForm.controls.age.errors.required" class="text-white">age is Required</p>
+                    <p   *ngIf="signUpForm.controls.age.errors.min" class="text-white">age min  is 10</p>
+                    <p   *ngIf="signUpForm.controls.age.errors.max" class="text-white">age max  is 80</p>
+
+                </div>
+
+                <input formControlName="password" type="password" placeholder="Enter password" class="form-control my-3">
+                <div class="passwordAlert alert border border-danger" *ngIf="signUpForm.controls.password.errors && signUpForm.controls.password.touched">
+
+                    <p *ngIf="signUpForm.controls.password.errors.required" class="text-white" >password is Required</p>
+                    <p *ngIf="signUpForm.controls.password.errors.pattern" class="text-white">password min is 1 Upper letter n 3 numbers</p>
+
+                </div>
+
+                <button class="btn btn-dark w-100" [disabled] = signUpForm.invalid>Sign Up <i class="fas fa-user-plus"></i></button>
+
+            </div>
+        </form>
+
+
+    </div>
+</section>
